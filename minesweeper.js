@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
 var board = { 'cells': [
-  //{row:1, col:1, hidden:true, isMine:true, isMarked: false, surroundingMines:0},
+  {row:1, col:1, hidden:true, isMine:true, isMarked: false, surroundingMines:0},
   {row:1, col:2, hidden:true, isMine:false, isMarked: false, surroundingMines:0},
   {row:1, col:3, hidden:true, isMine:true, isMarked: false, surroundingMines:0},
   {row:1, col:4, hidden:true, isMine:false, isMarked: false, surroundingMines:0},
@@ -45,16 +45,16 @@ var board = { 'cells': [
   {row:6, col:6, hidden:true, isMine:false, isMarked: false, surroundingMines:0}]
 };
 
-function createBoard (noOfCells){
-  board.cells[noOfCells].create({row: 1}, {col: 1}, {hidden: true}, {isMine:false}, {isMarked: false}, {surroundingMines:0})
-  return board.cells[noOfCells]
-}
+// function createBoard (noOfCells){
+//   board.cells[noOfCells].create({row: 1}, {col: 1}, {hidden: true}, {isMine:false}, {isMarked: false}, {surroundingMines:0})
+//   return board.cells[noOfCells]
+// }
 
 
 
 function startGame () {
   // Don't remove this function call: it makes the game work!
-  createBoard(1)
+  //createBoard(1)
 
   for(var i=0;i<board.cells.length;i++){
     if(countSurroundingMines(board.cells[i]))
@@ -66,11 +66,10 @@ function startGame () {
 
   document.getElementsByClassName('board')[0].addEventListener('contextmenu', checkForWin)
 
-
   lib.initBoard()
-  for(var i=0;i<board.cells.length;i++){
-  document.getElementsByClassName('board')[0].addEventListener('click',console.log(board.cells[i].hidden))
-  }
+  // for(var i=0;i<board.cells.length;i++){
+  // document.getElementsByClassName('board')[0].addEventListener('click',console.log(board.cells[i].hidden))
+  // }
 }
 
 // Define this function to look for a win condition:
